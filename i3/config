@@ -20,6 +20,8 @@ set $default_gaps_outer 0
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
+smart_gaps on
+
 ## Workspaces
 set $ws1 "1: Editors"
 set $ws2 "2: Chats"
@@ -127,6 +129,10 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# Cycle through Workspaces
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -217,6 +223,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
+#Gestures?
+# gesture: swipe up 3 xdotool key super+f
+
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
