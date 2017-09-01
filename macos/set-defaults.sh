@@ -9,11 +9,8 @@
 # 
 # Run ./set-defaults.sh and you'll be good to go.
 
-# Hide desktop icons
-defaults write com.apple.finder CreateDesktop -bool false && killall Finder
-
 # Default screenshot folder
-defaults write com.apple.screencapture location ~/Pictures/Screenshots
+defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
 # Fastdock unhide
 defaults write com.apple.Dock autohide-delay -float 0 && killall Dock
@@ -37,16 +34,3 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
-# Run the screensaver if we're in the bottom-left hot corner.
-defaults write com.apple.dock wvous-tl-corner -int 5
-defaults write com.apple.dock wvous-tl-modifier -int 0
-
-# Hide Safari's bookmark bar.
-defaults write com.apple.Safari ShowFavoritesBar -bool false
-
-# Set up Safari for development.
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true

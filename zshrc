@@ -1,0 +1,153 @@
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/alairock/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="amuse"
+
+plugins=(git kubectl tmux, tmuxinator themes)
+
+source $ZSH/oh-my-zsh.sh
+
+alias neo='nvim'
+
+alias cc='cd /Users/alairock/dev/CanopyCode'
+alias ca='cd /Users/alairock/dev/CanopyCode/canopy'
+alias ddg='cd /Users/alairock/dev/CanopyCode/doc-doc-goose'
+alias crm='cd /Users/alairock/dev/CanopyCode/crm'
+alias sheltr='cd /Users/alairock/dev/CanopyCode/sheltr'
+alias webber='docker exec -ti docdocgoose_workflow_1 bash'
+alias dbber='docker exec -ti docdocgoose_postgres_1 bash'
+alias phpunit='docker exec -ti docdocgoose_workflow_1 ./bin/phpunit-debug --stop-on-error'
+alias pf='phpunit --stop-on-failure --filter '
+alias art='docker exec -ti docdocgoose_workflow_1 php artisan'
+alias dc="docker-compose"
+
+alias vi "vim"
+
+alias ae='vim ~/.zshrc'
+alias ar='source ~/.zshrc'
+
+alias gs='git status -s'
+alias gstsh='git stash'
+alias gst='git stash'
+alias gsp='git stash pop'
+alias gsa='git stash apply'
+alias gsh='git show'
+alias gshw='git show'
+alias gshow='git show'
+alias gi='vim .gitignore'
+alias gcm='git ci -m'
+alias gcim='git ci -m'
+alias gci='git ci'
+alias gco='git co'
+alias gcp='git cp'
+alias ga='git add -A'
+alias gap='git add -p'
+alias guns='git unstage'
+alias gunc='git uncommit'
+alias gm='git merge'
+alias gms='git merge --squash'
+alias gam='git amend --reset-author'
+alias grv='git remote -v'
+alias grr='git remote rm'
+alias grad='git remote add'
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias ggrc='git rebase --continue'
+alias gbi='git rebase --interactive'
+alias gl='git l'
+alias glg='git l'
+alias glog='git l'
+alias co='git co'
+alias gf='git fetch'
+alias gfch='git fetch'
+alias gd='git diff'
+alias gb='git b'
+alias gbd='git b -D -w'
+
+alias gdc='git diff --cached -w'
+alias gds='git diff --staged -w'
+alias gpub='grb publish'
+alias gtr='grb track'
+alias gpl='git pull --rebase'
+alias gplr='git pull --rebase'
+alias gps='git push -u origin $(git rev-parse --abbrev-ref HEAD)'
+alias gnb='git nb' # new branch aka checkout -b
+alias grs='git reset'
+alias grsh='git reset --hard'
+alias gcln='git clean'
+alias gclndf='git clean -df'
+alias gclndfx='git clean -dfx'
+alias gsm='git submodule'
+alias gsmi='git submodule init'
+alias gsmu='git submodule update'
+alias gt='git t'
+alias gbg='git bisect good'
+alias gbb='git bisect bad'
+
+alias gpr='hub pull-request'
+
+alias slackmojify="mogrify -resize 128x128 -unsharp 2x1.4+0.5+0 -quality 100 -verbose"
+
+
+export EVENT_NOKQUEUE=1
+
+
+export PATH="/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
+
+export LOLCOMMITS_DELAY=1
+
+alias dproxy="docker run -p 3375:2375 -v /var/run/docker.sock:/var/run/docker.sock -d -e PORT=2375 shipyard/docker-proxy"
+
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+cd(){
+    venvactifile=./venv/bin/activate
+    builtin cd "$@";  
+    if [ -e "$venvactifile" ]; then
+        source $venvactifile
+        export PYTHONPATH=$(pwd)
+        echo "IN LIKE FLYNN"
+    else
+        if type deactivate >/dev/null 2>&1
+        then
+            deactivate
+            echo "Leaving Environment"
+        fi
+    fi
+}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export SIRBOT_SLACK_VERIFICATION_TOKEN=DOev6qy4ZwAx86LGkZTcevpm
+export SIRBOT_SLACK_BOT_TOKEN=xoxb-207418041666-U7Cn9YIJ9V2Dn1jhTIUMsebV
+
+dcfunc() {
+    export MY_LOCAL_IP=$(myIP)
+    docker-compose "$@"
+}
+myIP() {
+    ifconfig en0 inet | grep inet | awk {'print $2'}
+}
+alias dc=dcfunc
+
+alias c=gcloud
+alias k=kubectl
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/alairock/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/alairock/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/alairock/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/alairock/google-cloud-sdk/completion.zsh.inc'; fi
+
+export GOPATH=$HOME/golang
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+export SCONSIFY_PASSWORD=Monicle123!
+export SCONSIFY_USERNAME=123414260
+
+export NVM_DIR="/Users/alairock/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
