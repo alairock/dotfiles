@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 echo "Installing dotfiles"
 
-if ! command_exists zsh; then
+if ! zsh_loc="$(type -p "zsh")" || [ -z "$zsh_loc" ]; then
     echo "zsh not found. Please install and then re-run installation scripts"
     exit 1
 elif ! [[ $SHELL =~ .*zsh.* ]]; then
@@ -10,21 +10,22 @@ elif ! [[ $SHELL =~ .*zsh.* ]]; then
     chsh -s $(which zsh)
 fi
 
-if ! command_exists zplug; then
+ZDIR="~/.zplug"
+if [ -d "$ZDIR" ]; then    
     echo "installing zplug, a plugin manager for zsh - http://zplug.sh"
     git clone https://github.com/zplug/zplug ~/.zplug
 fi
 
 source install/link.sh
-source install/git.sh
+#source install/git.sh
 
 # only perform macOS-specific install
 if [ "$(uname)" == "Darwin" ]; then
-    echo -e "\n\nRunning on OSX"
+    echo "\n\nRunning on OSX"
 
-    source install/brew.sh
+ #   source install/brew.sh
 
-    source install/osx.sh
+#    source install/osx.sh
 
 fi
 

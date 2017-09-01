@@ -12,6 +12,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias neo='nvim'
 
+
+alias ll='ls -al'
 alias cc='cd /Users/alairock/dev/CanopyCode'
 alias ca='cd /Users/alairock/dev/CanopyCode/canopy'
 alias ddg='cd /Users/alairock/dev/CanopyCode/doc-doc-goose'
@@ -26,7 +28,7 @@ alias dc="docker-compose"
 
 alias vi "vim"
 
-alias ae='vim ~/.zshrc'
+alias ae='neo ~/.zshrc'
 alias ar='source ~/.zshrc'
 
 alias gs='git status -s'
