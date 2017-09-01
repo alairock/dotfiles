@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "\n\nSetting OS X settings"
+echo "\n\nSetting OS X settings"
 echo "=============================="
 
 # echo "show hidden files by default"
