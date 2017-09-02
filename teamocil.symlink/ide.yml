@@ -3,8 +3,7 @@ windows:
     root: ~/Code/sample/www
     layout: main-vertical
     panes:
-      - vim
+      - neo
       - commands:
-        - git pull
-        - git status
-      - rails server
+        - htop
+      - zsh

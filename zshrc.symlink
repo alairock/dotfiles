@@ -6,7 +6,7 @@ export ZSH=/Users/alairock/.oh-my-zsh
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="amuse"
 
-plugins=(git kubectl tmux tmuxinator themes teamocil)
+plugins=(git kubectl tmux tmuxinator themes)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -148,3 +148,5 @@ export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 export NVM_DIR="/Users/alairock/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+compctl -g '~/.teamocil/*(:t:r)' teamocil
