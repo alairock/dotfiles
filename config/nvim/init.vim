@@ -137,10 +137,6 @@ set visualbell
 set t_vb=
 set tm=500
 
-if has('mouse')
-  set mouse=a
-endif
-
 " }}}
 
 
@@ -252,8 +248,7 @@ map <leader>wc :wincmd q<cr>
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
+nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 
 " Mouse mode enabled
