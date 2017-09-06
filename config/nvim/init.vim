@@ -31,10 +31,6 @@ endif
 
 " }}}
 
-
-
-
-
 " Section User Interface {{{
 
 " switch cursor to line when in insert mode, and block when not
@@ -139,12 +135,6 @@ set tm=500
 
 " }}}
 
-
-
-
-
-
-
 " Section Mappings {{{
 
 " set a map leader for more key combos
@@ -177,7 +167,6 @@ noremap <space> :set hlsearch! hlsearch?<cr>
 " remove extra whitespace
 nmap <leader><space> :%s/\s\+$<cr>
 nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
-
 
 " nmap <leader>l :set list!<cr>
 
@@ -243,13 +232,11 @@ map <leader>wc :wincmd q<cr>
 
 " }}}
 
-
 " Section Plugins {{{
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <c-n> :NERDTreeToggle<CR>
-
 
 " Mouse mode enabled
 if has('mouse')
@@ -257,7 +244,6 @@ if has('mouse')
     set selectmode=mouse,key
     set nomousehide
 endif
-
 
 " airline configs
 let g:airline_powerline_fonts = 1
@@ -270,3 +256,8 @@ let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in 
 let g:airline#extensions#tabline#show_splits = 0
 " }}}
 
+" fzf config
+let g:fzf_layout = { 'down': '~60%' }
+
+let g:fzf_files_options =
+            \ '--preview "(~/dev/termpix/bin/termpix --width 50 --true-color {} || cat {}) 2> /dev/null "'
