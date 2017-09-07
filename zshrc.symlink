@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/alairock/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -10,60 +10,31 @@ plugins=(git kubectl tmux tmuxinator themes)
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/aliases.sh
+source $HOME/.dotfiles/functions.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 export EVENT_NOKQUEUE=1
 export PATH="/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
-
 export LOLCOMMITS_DELAY=1
-
-alias dproxy="docker run -p 3375:2375 -v /var/run/docker.sock:/var/run/docker.sock -d -e PORT=2375 shipyard/docker-proxy"
-
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
-
-cd(){
-    venvactifile=./venv/bin/activate
-    builtin cd "$@";  
-    if [ -e "$venvactifile" ]; then
-        source $venvactifile
-        export PYTHONPATH=$(pwd)
-        echo "IN LIKE FLYNN"
-    else
-        if type deactivate >/dev/null 2>&1
-        then
-            deactivate
-            echo "Leaving Environment"
-        fi
-    fi
-}
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-dcfunc() {
-    export MY_LOCAL_IP=$(myIP)
-    docker-compose "$@"
-}
-myIP() {
-    ifconfig en0 inet | grep inet | awk {'print $2'}
-}
-alias dc=dcfunc
-
-alias c=gcloud
-alias k=kubectl
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/alairock/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/alairock/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/alairock/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/alairock/google-cloud-sdk/completion.zsh.inc'; fi
-
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-
-export NVM_DIR="/Users/alairock/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-compctl -g '~/.teamocil/*(:t:r)' teamocil
-
 export PYTHONSTARTUP=$HOME/.startup.py
+export NVM_DIR=$HOME.nvm
+
+
+# Fzf - Fuzzyfinder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Google/Kube
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f $HOME/google-cloud-sdk/path.zsh.inc ]; then source $HOME/google-cloud-sdk/path.zsh.inc; fi
+# The next line enables shell command completion for gcloud.
+if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then source $HOME/google-cloud-sdk/completion.zsh.inc; fi
+
+# Load NVM
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+# Teamocil
+compctl -g '~/.teamocil/*(:t:r)' teamocil

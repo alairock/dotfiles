@@ -1,26 +1,32 @@
-
+# editor aliases
 alias neo='nvim'
-alias pyd='python -s ~/.dotfiles/pdb/pydbgp -d localhost:9000 run.py'
+alias vim="neo"
+alias vi="neo"
 
-
+# movement
 alias ll='ls -al'
-alias cc='cd /Users/alairock/dev/CanopyCode'
-alias ca='cd /Users/alairock/dev/CanopyCode/canopy'
-alias ddg='cd /Users/alairock/dev/CanopyCode/doc-doc-goose'
-alias crm='cd /Users/alairock/dev/CanopyCode/crm'
-alias sheltr='cd /Users/alairock/dev/CanopyCode/sheltr'
-alias webber='docker exec -ti docdocgoose_workflow_1 bash'
-alias dbber='docker exec -ti docdocgoose_postgres_1 bash'
+alias cc='cd ~/dev/CanopyCode'
+alias ca='cd ~/dev/CanopyCode/canopy'
+alias ddg='cd ~/dev/CanopyCode/doc-doc-goose'
+alias crm='cd ~/dev/CanopyCode/crm'
+alias sheltr='cd ~/dev/CanopyCode/sheltr'
+alias c.='cd ~/.dotfiles/'
+alias c=gcloud
+alias k=kubectl
+
+# docker stuff
 alias phpunit='docker exec -ti docdocgoose_workflow_1 ./bin/phpunit-debug --stop-on-error'
-alias pf='phpunit --stop-on-failure --filter '
-alias art='docker exec -ti docdocgoose_workflow_1 php artisan'
 alias dc="docker-compose"
 
-alias vi "vim"
+# Python aliases
+alias pyd='python -s ~/.dotfiles/pdb/pydbgp -d localhost:9000 run.py'
 
+# zsh 
 alias ae='neo ~/.zshrc'
 alias ar='source ~/.zshrc'
 
+# git stuff
+alias slackmojify="mogrify -resize 128x128 -unsharp 2x1.4+0.5+0 -quality 100 -verbose"
 alias gs='git status -s'
 alias gstsh='git stash'
 alias gst='git stash'
@@ -58,7 +64,6 @@ alias gfch='git fetch'
 alias gd='git diff'
 alias gb='git b'
 alias gbd='git b -D -w'
-
 alias gdc='git diff --cached -w'
 alias gds='git diff --staged -w'
 alias gpub='grb publish'
@@ -78,7 +83,6 @@ alias gsmu='git submodule update'
 alias gt='git t'
 alias gbg='git bisect good'
 alias gbb='git bisect bad'
-
 alias gpr='hub pull-request'
 
-alias slackmojify="mogrify -resize 128x128 -unsharp 2x1.4+0.5+0 -quality 100 -verbose"
+
