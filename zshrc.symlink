@@ -9,7 +9,7 @@ ZSH_THEME="eastwood"
 plugins=(git kubectl tmux tmuxinator themes)
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/aliases
+source $HOME/.dotfiles/aliases.sh
 
 export EVENT_NOKQUEUE=1
 export PATH="/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
