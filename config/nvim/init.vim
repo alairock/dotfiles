@@ -1,27 +1,16 @@
 source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/abbr.vim
+source ~/.config/nvim/functions.vim
+source ~/.config/nvim/aliases.vim
 
 " Section General {{{
 
-" Abbreviations
-abbr funciton function
-abbr teh the
-
 set nocompatible            " not compatible with vi
 set autoread                " detect when a file is changed
-
 set history=1000            " change history to 1000
 set textwidth=120
-
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" Python mode conf
-let g:pymode_python = 'python3'
-let g:pymode_warnings = 1
-let ropevim_vim_completion=1
-let g:pymode_folding = 0
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 if (has('nvim'))
   " show results of substition as they're happening
@@ -62,7 +51,7 @@ highlight xmlAttrib cterm=italic
 highlight Type cterm=italic
 highlight Normal ctermbg=none
 
-"set number                  " show line numbers
+set number                  " show line numbers
 "set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
@@ -135,108 +124,21 @@ set tm=500
 
 " }}}
 
-" Section Mappings {{{
 
-" set a map leader for more key combos
-let mapleader = ','
 
-" remap esc
-" inoremap jk <esc>
-
-" wipout buffer
-"nmap <silent> <leader>b :bw<cr>
-
-" shortcut to save
-nmap <leader>, :w<cr>
-
-" set paste toggle
-" set pastetoggle=<leader>v
-
-" toggle paste mode
-" map <leader>v :set paste!<cr>
-
-" edit ~/.config/nvim/init.vim
-map <leader>ev :e! ~/.config/nvim/init.vim<cr>
-
-" clear highlighted search
-noremap <space> :set hlsearch! hlsearch?<cr>
-
-" activate spell-checking alternatives
-" nmap ;s :set invspell spelllang=en<cr>
-
-" remove extra whitespace
-nmap <leader><space> :%s/\s\+$<cr>
-nmap <leader><space><space> :%s/\n\{2,}/\r\r/g<cr>
-
-" nmap <leader>l :set list!<cr>
-
-" Textmate style indentation
-vmap <leader>[ <gv
-vmap <leader>] >gv
-nmap <leader>[ <<
-nmap <leader>] >>
-
-" switch between current and last buffer
-" nmap <leader>. <c-^>
-
-" enable . command in visual mode
-vnoremap . :normal .<cr>
-
-map <silent> <C-n> :call functions#WinMove('h')<cr>
-map <silent> <C-u> :call functions#WinMove('j')<cr>
-map <silent> <C-e> :call functions#WinMove('k')<cr>
-map <silent> <C-i> :call functions#WinMove('l')<cr>
-
-map <leader>wc :wincmd q<cr>
-
-" move line mappings
-" ∆ is <A-j> on macOS
-" ˚ is <A-k> on macOS
-"nnoremap ∆ :m .+1<cr>==
-"nnoremap ˚ :m .-2<cr>==
-"inoremap ∆ <Esc>:m .+1<cr>==gi
-"inoremap ˚ <Esc>:m .-2<cr>==gi
-"vnoremap ∆ :m '>+1<cr>gv=gv
-"vnoremap ˚ :m '<-2<cr>gv=gv
-
-" toggle cursor line
-"nnoremap <leader>i :set cursorline!<cr>
-
-" scroll the viewport faster
-"nnoremap <C-e> 3<C-e>
-"nnoremap <C-y> 3<C-y>
-
-" moving up and down work as you would expect
-"nnoremap <silent> j gj
-"nnoremap <silent> k gk
-"nnoremap <silent> ^ g^
-"nnoremap <silent> $ g$
-
-" search for word under the cursor
-"nnoremap <leader>/ "fyiw :/<c-r>f<cr>
-
-" inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-"map <leader>r :call RunCustomCommand()<cr>
-" map <leader>s :call SetCustomCommand()<cr>
-"let g:silent_custom_command = 0
-
-" helpers for dealing with other people's code
-"nmap \t :set ts=4 sts=4 sw=4 noet<cr>
-"nmap \s :set ts=4 sts=4 sw=4 et<cr>
-
-"nnoremap <silent> <leader>u :call functions#HtmlUnEscape()<cr>
-
-"command! Rm call functions#Delete()
-"command! RM call functions#Delete() <Bar> q!
-
-" }}}
-
-" Section Plugins {{{
+" Plugin settings {{{
 " NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+
+" Python mode conf
+let g:pymode_python = 'python3'
+let g:pymode_warnings = 1
+let ropevim_vim_completion=1
+let g:pymode_folding = 0
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Mouse mode enabled
 if has('mouse')
@@ -244,6 +146,7 @@ if has('mouse')
     set selectmode=mouse,key
     set nomousehide
 endif
+
 
 " airline configs
 let g:airline_powerline_fonts = 1
@@ -254,10 +157,9 @@ let g:airline#extensions#tabline#enabled = 1 " enable airline tabline
 let g:airline#extensions#tabline#tab_min_count = 2 " only show tabline if tabs are being used (more than 1 tab open)
 let g:airline#extensions#tabline#show_buffers = 0 " do not show open buffers in tabline
 let g:airline#extensions#tabline#show_splits = 0
-" }}}
+
 
 " fzf config
 let g:fzf_layout = { 'down': '~60%' }
-
 let g:fzf_files_options =
             \ '--preview "(~/dev/termpix/bin/termpix --width 50 --true-color {} || cat {}) 2> /dev/null "'
