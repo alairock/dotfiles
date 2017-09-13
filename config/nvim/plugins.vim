@@ -17,7 +17,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-"Plug 'klen/python-mode' gonna try and brew my own "plugin"
+"Plug 'klen/python-mode' gonna try and brew my own
 Plug 'tpope/vim-sensible'
 
 Plug 'vim-airline/vim-airline'
