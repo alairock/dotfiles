@@ -2,6 +2,16 @@
 
 echo "Installing dotfiles"
 
+
+OS=`uname`
+
+if [ $OS == "Darwin" -a -x `which brew` ]; then
+  cp completions/firebase.completion /usr/local/etc/bash_completion.d
+else 
+  cp completions/firebase.completion /etc/bash_completion.d/
+fi
+
+
 if ! zsh_loc="$(type -p "zsh")" || [ -z "$zsh_loc" ]; then
     echo "zsh not found. Please install and then re-run installation scripts"
     exit 1
@@ -24,6 +34,7 @@ if [ "$(uname)" == "Darwin" ]; then
     source install/macos.sh
 
 fi
+
 
 echo "Done. Reload your terminal."
 

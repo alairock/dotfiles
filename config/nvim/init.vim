@@ -3,6 +3,7 @@ source ~/.config/nvim/abbr.vim
 source ~/.config/nvim/functions.vim
 source ~/.config/nvim/aliases.vim
 
+
 " Section General {{{
 
 set nocompatible            " not compatible with vi
@@ -51,8 +52,10 @@ highlight xmlAttrib cterm=italic
 highlight Type cterm=italic
 highlight Normal ctermbg=none
 
+set colorcolumn=79
+
 set number                  " show line numbers
-"set relativenumber          " show relative line numbers
+set relativenumber          " show relative line numbers
 
 set wrap                    " turn on line wrapping
 set wrapmargin=8            " wrap lines when coming within n characters from side
@@ -124,6 +127,8 @@ set tm=500
 
 " }}}
 
+" close if buffer is empty
+map <leader>q :qall<cr>
 
 
 " Plugin settings {{{
@@ -131,14 +136,10 @@ set tm=500
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <c-n> :NERDTreeToggle<CR>
+let g:NERDTreeIgnore=['\.pyc$', '__pycache__$', '.git$', '.idea$', '.ropeproject$', '.cache$']
+let NERDTreeShowHidden=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Python mode conf
-let g:pymode_python = 'python3'
-let g:pymode_warnings = 1
-let ropevim_vim_completion=1
-let g:pymode_folding = 0
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Mouse mode enabled
 if has('mouse')
@@ -163,3 +164,19 @@ let g:airline#extensions#tabline#show_splits = 0
 let g:fzf_layout = { 'down': '~60%' }
 let g:fzf_files_options =
             \ '--preview "(~/dev/termpix/bin/termpix --width 50 --true-color {} || cat {}) 2> /dev/null "'
+
+" Snippets
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Ale linter
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+  \ 'python': ['flake8'] ,
+  \ }

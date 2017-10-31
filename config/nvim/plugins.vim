@@ -17,7 +17,6 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-"Plug 'klen/python-mode' gonna try and brew my own
 Plug 'tpope/vim-sensible'
 
 Plug 'vim-airline/vim-airline'
@@ -32,16 +31,11 @@ Plug 'tpope/vim-scriptease'
 Plug 'scrooloose/nerdtree' 
 Plug 'scrooloose/nerdcommenter'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim' " fuzzy file finder and so much more
-"Plug 'mileszs/ack.vim' " search inside files using ack. Same as command line ack utility, but use :Ack
 Plug 'Raimondi/delimitMate' " automatic closing of quotes, parenthesis, brackets, etc.
-"Plug 'tpope/vim-commentary' " comment stuff out
-"Plug 'tpope/vim-unimpaired' " mappings which are simply short normal mode aliases for commonly used ex commands
-"Plug 'tpope/vim-surround' " mappings to easily delete, change and add such surroundings in pairs, such as quotes, parens, etc.
 Plug 'benmills/vimux' " tmux integration for vim
 Plug 'w0rp/ale' " Asynchonous linting engine
 Plug 'tpope/vim-fugitive' " amazing git wrapper for vim
 Plug 'tpope/vim-repeat' " enables repeating other supported plugins with the . command
-"Plug 'garbas/vim-snipmate' " snippet manager
 Plug 'editorconfig/editorconfig-vim' " .editorconfig support
 Plug 'MarcWeber/vim-addon-mw-utils' " interpret a file by function and cache file automatically
 Plug 'tomtom/tlib_vim' " utility functions for vim
@@ -49,10 +43,13 @@ Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 
+Plug 'gorkunov/smartgf.vim'
 
+" Snippets.
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
-
-
-
+" Sort imports
+Plug 'tweekmonster/impsort.vim'
 
 call plug#end()

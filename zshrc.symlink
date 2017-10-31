@@ -11,6 +11,7 @@ plugins=(git kubectl tmux tmuxinator themes)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/aliases.sh
 source $HOME/.dotfiles/functions.sh
+source $HOME/.dotfiles/secrets.sh
 source /usr/local/bin/virtualenvwrapper.sh
 
 export EVENT_NOKQUEUE=1
@@ -22,6 +23,8 @@ export GOROOT=/usr/local/opt/go/libexec
 export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 export PYTHONSTARTUP=$HOME/.startup.py
 export NVM_DIR=$HOME.nvm
+export KOPS_STATE_STORE='s3://canopy-k8s-state-store'
+
 
 
 # Fzf - Fuzzyfinder
