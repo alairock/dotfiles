@@ -43,6 +43,8 @@ Plug 'ervandew/supertab' " Perform all your vim insert mode completions with Tab
 Plug 'tpope/vim-sleuth' " detect indent style (tabs vs. spaces)
 Plug 'sickill/vim-pasta' " context-aware pasting
 
+Plug 'tarnas14/workflowish' " workflowy for vim
+
 Plug 'gorkunov/smartgf.vim'
 
 " Snippets.

@@ -19,6 +19,7 @@ formulas=(
     the_silver_searcher
     tmux
     zsh
+    jrnl
 )
 
 taps=(

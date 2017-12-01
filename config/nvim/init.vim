@@ -136,7 +136,7 @@ map <leader>q :qall<cr>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 nmap <silent> <c-n> :NERDTreeToggle<CR>
-let g:NERDTreeIgnore=['\.pyc$', '__pycache__$', '.git$', '.idea$', '.ropeproject$', '.cache$']
+let g:NERDTreeIgnore=['\.pyc$', '__pycache__$', '.git$', '.idea$', '.ropeproject$', '.cache$', '.DS_Store']
 let NERDTreeShowHidden=1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
