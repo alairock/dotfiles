@@ -1,3 +1,8 @@
+#Other
+alias dbtunnel='ssh -p 1022 -L localhost:51515:prod2.db.canopy.ninja:5432 -N ubuntu@ssh-tunnel.canopy.ninja'
+alias rmtunnel='kubectl port-forward rabbitmq-0 15672:15672 -n rabbit --context production'
+alias rtunnel='kubectl port-forward rabbitmq-0 5672:5672 -n rabbit --context production'
+
 # editor aliases
 alias neo='nvim'
 alias vim="neo"
@@ -85,4 +90,5 @@ alias gbg='git bisect good'
 alias gbb='git bisect bad'
 alias gpr='hub pull-request'
 
-
+#jrnl
+alias j='jrnl'
