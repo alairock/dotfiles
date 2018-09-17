@@ -26,3 +26,37 @@ myIP() {
     ifconfig en0 inet | grep inet | awk {'print $2'}
 }
 
+spot_go() {
+    curl -X "PUT" "https://api.spotify.com/v1/me/player/$1" -H "Accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer $(echo $SPOT_SECRET)"
+}
+
+spot_play() {
+    spot_go "play"
+}
+
+spot_pause() {
+    spot_go "pause"
+}
+
+pp() {
+    spot_play
+}
+
+p() {
+    spot_pause
+}
+
+shf() {
+    spot_go "shuffle?state=$1"
+}
+
+
+s() {
+    shf true
+}
+
+ss() {
+    shf false
+}
+
+
