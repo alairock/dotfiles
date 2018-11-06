@@ -1,9 +1,0 @@
-windows:
-  - name: sample-three-panes
-    root: ~/Code/sample/www
-    layout: main-vertical
-    panes:
-      - neo
-      - commands:
-        - htop
-      - zsh
