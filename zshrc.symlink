@@ -16,11 +16,11 @@ source $HOME/.dotfiles/secrets.sh
 
 export EVENT_NOKQUEUE=1
 export PATH="/usr/local/sbin:$PATH:/usr/local/opt/go/libexec/bin"
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin:$HOME/dev/dev-tools/bin
 export LOLCOMMITS_DELAY=1
 export WORKON_HOME=$HOME/.virtualenvs
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 export PYTHONSTARTUP=$HOME/.startup.py
 export KOPS_STATE_STORE='s3://canopy-k8s-state-store'
 export EDITOR=nvim
@@ -41,3 +41,5 @@ if [ -f $HOME/google-cloud-sdk/completion.zsh.inc ]; then source $HOME/google-cl
 [[ -f /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /usr/local/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
 
 # zprof # uncomment to end zsh profiler
+
+
